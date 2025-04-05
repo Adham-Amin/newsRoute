@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:news_route/Core/utils/app_colors.dart';
-import 'package:news_route/Core/utils/app_routes.dart';
 import 'package:news_route/Core/utils/app_styles.dart';
-import 'package:news_route/Core/widgets/custom_drawer.dart';
 import 'package:news_route/Core/widgets/custom_scaffold.dart';
-import 'package:news_route/Features/home/presentation/widgets/home_view_body.dart';
+import 'package:news_route/Features/home/presentation/widgets/category_details_view_body.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+class CategoryDetailsView extends StatelessWidget {
+  const CategoryDetailsView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +15,7 @@ class HomeView extends StatelessWidget {
         backgroundColor: AppColors.green,
         centerTitle: true,
         title: Text(
-          'News App',
+          'News Title',
           style: AppStyles.textNormal22.copyWith(color: AppColors.white),
         ),
         shape: RoundedRectangleBorder(
@@ -27,11 +24,7 @@ class HomeView extends StatelessWidget {
           ),
         ),
       ),
-      body: const HomeViewBody(),
-      drawer: CustomDrawer(
-        categories: () => GoRouter.of(context).pop(),
-        settings: () => GoRouter.of(context).pushReplacement(AppRouters.setting),
-      ),
+      body: CategoryDetailsViewBody(),
     );
   }
 }

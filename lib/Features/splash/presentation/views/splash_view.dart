@@ -31,7 +31,7 @@ class _SplashViewState extends State<SplashView> {
     Timer(
       Duration(seconds: 3),
       () {
-        GoRouter.of(context).pushReplacement(AppRoutes.home);
+        GoRouter.of(context).pushReplacement(AppRouters.home);
       },
     );
   }

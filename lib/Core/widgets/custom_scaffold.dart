@@ -4,11 +4,12 @@ import 'package:news_route/Core/utils/app_colors.dart';
 
 class CustomScaffold extends StatelessWidget {
   const CustomScaffold({
-    super.key, required this.body, this.appBar
+    super.key, required this.body, this.appBar, this.drawer
   });
 
   final Widget body;
   final PreferredSizeWidget? appBar;
+  final Widget? drawer;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +26,7 @@ class CustomScaffold extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: appBar,
+        drawer: drawer,
         body: body,
       ),
     );

@@ -4,13 +4,12 @@ import 'package:go_router/go_router.dart';
 import 'package:news_route/Core/utils/app_colors.dart';
 import 'package:news_route/Core/utils/app_routes.dart';
 import 'package:news_route/Core/utils/app_styles.dart';
-import 'package:news_route/Core/widgets/custom_drawer.dart';
 import 'package:news_route/Core/widgets/custom_scaffold.dart';
-import 'package:news_route/Features/home/presentation/widgets/home_view_body.dart';
+import 'package:news_route/Features/home/presentation/widgets/category_view_body.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
-
+class CategoryView extends StatelessWidget {
+  const CategoryView({super.key, required this.category});
+  final String category;
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
@@ -18,7 +17,7 @@ class HomeView extends StatelessWidget {
         backgroundColor: AppColors.green,
         centerTitle: true,
         title: Text(
-          'News App',
+          category,
           style: AppStyles.textNormal22.copyWith(color: AppColors.white),
         ),
         shape: RoundedRectangleBorder(
@@ -26,12 +25,19 @@ class HomeView extends StatelessWidget {
             bottom: Radius.circular(24.sp),
           ),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              GoRouter.of(context).push(AppRouters.search);
+            },
+            icon: const Icon(
+              Icons.search,
+              color: Colors.black,
+            ),
+          ),
+        ],
       ),
-      body: const HomeViewBody(),
-      drawer: CustomDrawer(
-        categories: () => GoRouter.of(context).pop(),
-        settings: () => GoRouter.of(context).pushReplacement(AppRouters.setting),
-      ),
+      body: CategoryViewBody(),
     );
   }
 }

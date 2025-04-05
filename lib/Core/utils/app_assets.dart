@@ -8,4 +8,5 @@ abstract class AppAssets {
   static const String politics = 'assets/images/Politics.png';
   static const String logoRouter = 'assets/images/route_logo.png';
   static const String science = 'assets/images/science.png';
+  static const String icSearch = 'assets/images/ic_search.png';
 }

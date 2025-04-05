@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:news_route/Core/utils/app_colors.dart';
 import 'package:news_route/Core/utils/app_routes.dart';
 
 void main() {
@@ -16,9 +17,10 @@ class NewsRoute extends StatelessWidget {
       splitScreenMode: true,
       minTextAdapt: true,
       child: MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      routerConfig: AppRoutes.router,
-    ),
+        debugShowCheckedModeBanner: false,
+        routerConfig: AppRouters.router,
+        theme: ThemeData(iconTheme: IconThemeData(color: AppColors.white)),
+      ),
     );
   }
 }
